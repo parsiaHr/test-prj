@@ -11,7 +11,9 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          max-width: 1200px;
           gap: 20px;
+          padding: 20px;
        }
        button {
           outline: none;
@@ -32,33 +34,42 @@
        .file {
           background-color: chocolate;
        }
+       input {
+          display: none;
+       }
     </style>
 </head>
 <body>
 
+     inut=
+
+     <!-- <script>
+          let usernames = [
+               'parsia' , 'rezaei' , 'parmida' , 'arshia'
+          ];
+          console.log(usernames)
+          let userNumber = Number(prompt('enter the number'));
+          usernames.splice(userNumber,1);
+          console.log(usernames)
+     </script> -->
+
      <div class="container">
-          <input type="file" accept="image/*">
-          <button class="camera">open camera</button>
+          <input type="file" accept="*/*">
           <button class="file">open file</button>
+          <h2></h2>
      </div>
 
      <script>
           const input = document.querySelector("input");
-          const cameraBtn = document.querySelector(".camera");
           const fileBtn = document.querySelector(".file");
 
-          cameraBtn.addEventListener('click' , () => {
-               input.setAttribute("capture" , "environment");
-               setTimeout(() => {
-                    input.click();
-               }, 1500);
-          });
+          input.addEventListener("change" , () => {
+               document.querySelector("h2").textContent = input.files[0].name;
 
+          })
+          
           fileBtn.addEventListener('click' , () => {
-               input.removeAttribute("capture");
-               setTimeout(() => {
-                    input.click();
-               }, 1500);
+               input.click();
           })
      </script>
 
